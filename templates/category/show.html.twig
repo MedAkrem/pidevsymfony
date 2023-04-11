@@ -1,21 +1,26 @@
 {% extends 'base.html.twig' %}
 
-
-
 {% block content %}
-
-<h1>List of Category</h1>
-<a href="{{ path('addcategory') }}">Add new Category</a>
-
-<table border="1">
-    {% for c in list %}
+    <h1>List of Categories</h1>
+    <a href="{{ path('addcategory') }}" class="btn btn-primary">Add New Category</a>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
         <tr>
-            <td>{{ c.name }}</td>
-
-            <td><a href="{{ path('updatecategory',{'id':c.id}) }}">Update</a></td>
-            <td><a href="{{ path('deletecategory',{'id':c.id}) }}">Delete</a></td>
-
+            <th>Category Name</th>
+            <th>Actions</th>
         </tr>
-    {% endfor %}
-</table>
+        </thead>
+        <tbody>
+        {% for category in list %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+                <a href="{{ path('updatecategory', {'id': category.id}) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ path('deletecategory', {'id': category.id}) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

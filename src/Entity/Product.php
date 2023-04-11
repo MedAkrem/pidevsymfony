@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
+
 /**
  * Product
  *
@@ -25,8 +27,18 @@ class Product
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=30, nullable=false)
+     *
      */
+
     private $name;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     */
+    private $image;
+
+
 
     /**
      * @var string
@@ -71,7 +83,11 @@ class Product
      *   @ORM\JoinColumn(name="sub_category_id", referencedColumnName="id")
      * })
      */
+
+
     private $subCategory;
+
+
 
     public function getId(): ?string
     {
@@ -161,6 +177,7 @@ class Product
 
         return $this;
     }
+
 
 
 }

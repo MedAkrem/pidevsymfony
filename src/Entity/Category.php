@@ -25,8 +25,7 @@ class Category
 
     /**
      * @var string
-     * @Assert\NotBlank(message="Le nom ne peut pas être vide")
-     * @Assert\Length(max=15, maxMessage="Le nom ne peut pas dépasser {{ limit }} caractères")
+     *
      * @ORM\Column(name="name", type="string", length=30, nullable=false)
      */
     private $name;

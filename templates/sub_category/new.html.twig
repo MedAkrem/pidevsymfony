@@ -1,3 +1,12 @@
-<h1>Add new sub Categorie</h1>
+{# templates/subcategory/new.html.twig #}
 
-{{ form(formClass) }}
+
+{% block body %}
+    <h1>Add a subcategory</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.category) }}
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}
