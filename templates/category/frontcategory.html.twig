@@ -1,0 +1,25 @@
+{% extends 'front.html.twig' %}
+
+{% block content %}
+    <h1>List of Categories</h1>
+    <a href="{{ path('addcategory') }}" class="btn btn-primary">Add New Category</a>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in list %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

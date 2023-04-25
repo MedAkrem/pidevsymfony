@@ -69,6 +69,15 @@ class SubCategoryController extends AbstractController
         return $this->render('sub_category/show.html.twig', ['list' => $subCategories]);
     }
 
+    #[Route('/admin/showsubsubcategory', name: 'admin/showsubsubcategory')]
+    public function listt(): Response
+    {
+        $subCategories = $this->getDoctrine()->getRepository(SubCategory::class)->findAll();
+
+        return $this->render('sub_category/frontsubcategory.html.twig', ['list' => $subCategories]);
+    }
+
+
     #[Route('/updatesubcategory/{id}', name: 'updatesubcategory')]
     public function update(Request $req, $id)
     {

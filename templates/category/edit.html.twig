@@ -1,3 +1,10 @@
-<h1>updateClassroom</h1>
 
-{{ form(formClass) }}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>update category</h1>
+
+    {{ form(formClass) }}
+    {{ form_errors(formClass) }}
+
+{% endblock  %}

@@ -3,7 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\DBAL\Types\Types;
 
 
 /**
@@ -23,14 +24,15 @@ class Product
      */
     private $id;
 
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=30, nullable=false)
      *
      */
-
     private $name;
+
     /**
      * @var string
      *
@@ -45,12 +47,16 @@ class Product
      *
      * @ORM\Column(name="description", type="string", length=30, nullable=false)
      */
+
     private $description;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantity", type="integer", nullable=false)
+     * @Assert\NotBlank(message="La quantité ne peut pas être vide.")
+     * @Assert\Type(type="integer", message="La quantité doit être un nombre entier.")
+     * @Assert\GreaterThanOrEqual(value=0, message="La quantité doit être supérieure ou égale à 0.")
      */
     private $quantity;
 

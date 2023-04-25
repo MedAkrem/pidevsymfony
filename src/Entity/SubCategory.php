@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SubCategory
@@ -25,6 +26,9 @@ class SubCategory
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=30, nullable=false)
+     *
+     * @Assert\NotBlank(message="Please enter your name")
+     * @Assert\Length(min=2, max=30, minMessage="Your firstname reference must be at least {{ limit }} characters long", maxMessage="Your firstname reference characters max is {{ limit }}")
      */
     private $name;
 

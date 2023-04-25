@@ -1,0 +1,32 @@
+{% extends 'front.html.twig' %}
+
+{% block content %}
+
+    <h1>List of Subcategories</h1>
+    <a href="{{ path('addsubcategory') }}"  class="btn btn-primary">Add New Subcategory</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for subcategory in list %}
+            <tr>
+                <td>{{ subcategory.name }}</td>
+                <td>{{ subcategory.category.name }}</td>
+                <td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No subcategories found.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

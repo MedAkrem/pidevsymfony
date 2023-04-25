@@ -28,7 +28,7 @@ class CategoryController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('showcategory');
         }
-        return $this->render('category/new.html.twig', ['formClass' => $form->createView()]);
+        return $this->render('category/new.html.twig', ['form' => $form->createView()]);
     }
 
 
@@ -39,6 +39,15 @@ class CategoryController extends AbstractController
         $Categorys = $c->findAll();
         return $this->render('category/show.html.twig',['list'=>$Categorys]);
     }
+
+    #[Route('/admin/showcategory', name: 'admin/showcategory')]
+    public function listadmin(CategoryRepository $c):Response
+    {
+        $Categorys = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        $Categorys = $c->findAll();
+        return $this->render('category/frontcategory.html.twig',['list'=>$Categorys]);
+    }
+
 
     #[Route('/updatecategory/{id}', name: 'updatecategory')]
 

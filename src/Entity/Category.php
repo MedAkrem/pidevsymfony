@@ -23,12 +23,15 @@ class Category
      */
     private $id;
 
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=30, nullable=false)
+     *
      */
     private $name;
+
 
     public function getId(): ?string
     {

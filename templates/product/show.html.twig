@@ -28,7 +28,7 @@
                 <td>{{ product.subCategory.name }}</td>
 
                 <td>  <a href="{{ path('updateproduct', {'id': product.id}) }}" class="btn btn-warning">Edit</a></td>
-                <td>  <a href="{{ path('deleteproduit', {'id': product.id}) }}" class="btn btn-warning">delete</a></td>
+                <td>  <a href="{{ path('deleteproduit', {'id': product.id}) }}" class="btn btn-danger">delete</a></td>
             </tr>
         {% endfor %}
         </tbody>
